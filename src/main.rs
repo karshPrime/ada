@@ -1,3 +1,4 @@
+mod trigger;
 fn main() {
     let mut counter: u32 = 1;
     let mut run: bool = true;
@@ -8,10 +9,13 @@ fn main() {
         // update
 
         // actions
+        trigger::auto();
+        trigger::call();
 
         // counter update
 
         // if program must keep running
+        run = trigger::keep_running();
     }
 
     // free all components
