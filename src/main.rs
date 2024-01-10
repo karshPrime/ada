@@ -13,6 +13,7 @@ fn main() {
         trigger::call();
 
         // counter update
+        trigger::update_counter(&mut counter);
 
         // if program must keep running
         run = trigger::keep_running();

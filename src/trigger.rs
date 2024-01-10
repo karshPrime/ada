@@ -1,4 +1,6 @@
+//
 
+//
 pub fn auto() -> (){
     //
 }
@@ -15,4 +17,9 @@ pub fn keep_running() -> bool {
 
 //
 pub fn update_counter(counter: &mut u32) -> () {
+    if *counter == u32::MAX {
+        *counter = 1;
+    } else {
+        *counter += 1;
+    }
 }
