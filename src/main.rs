@@ -9,6 +9,7 @@ fn main() {
     let mut run: bool = true;
 
     // initialise all components
+    let chip = Chip::new("gpiochip0").expect("Failed to open GPIO chip");
     
     while run {
         // update
