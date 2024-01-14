@@ -2,24 +2,17 @@ use gpiod;
 use super::unit;
 
 pub struct Buzzer {
+    line: gpiod::Lines<gpiod::Input>,
     sleep: u32,
 }
 
 impl unit::Component for Buzzer {
     // Initialize and return a vector of buzzers
-    fn init(chip: &gpiod::Chip) -> Vec<Box<Self>> {
+    fn init(chip: &gpiod::Chip) -> Buzzer {
         unimplemented!()
     }
 
-    fn update(buzzers: &[Box<Self>], counter: &u32) -> () {
-        for buzzer in buzzers {
-            // Update logic for buzzer
-        }
-    }
-
-    fn free(buzzers: &[Box<Self>]) -> () {
-        for buzzer in buzzers {
-            // Free resources for buzzer
-        }
+    fn update(&self, counter: &u32) {
+        // Update logic for buzzer
     }
 }

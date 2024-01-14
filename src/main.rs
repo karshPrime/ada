@@ -31,9 +31,5 @@ fn main() {
         // if program must keep running
         run = trigger::keep_running();
     }
-
-    // free all components
-    Led::free(&leds);
-    Button::free(&buttons);
-    Buzzer::free(&buzzers);
 }
+
