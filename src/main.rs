@@ -1,25 +1,27 @@
-use gpiod::Chip;
-
+mod log;
 mod trigger;
 mod units;
 
+use gpiod::Chip;
 use units::{unit::Component, Led, Button, Buzzer};
 
 fn main() {
-    let mut counter: u32 = 1;
-    let mut run: bool = true;
+    let mut counter: u32  = 1;
+    let mut run    : bool = true;
 
     // initialise all components
-    let chip = Chip::new("gpiochip0").expect("Failed to open GPIO chip");
+    let chip = Chip::new("gpiochip0")
+        .expect("Failed to open GPIO chip");
+    
     let leds = Led::init(&chip);
     let buttons = Button::init(&chip);
     let buzzers = Buzzer::init(&chip);
     
     while run {
         // update
-        Led::update(&leds, &counter);
-        Button::update(&buttons, &counter);
-        Buzzer::update(&buzzers, &counter);
+        leds.update(&counter);
+        buttons.update(&counter);
+        buzzers.update(&counter);
 
         // actions
         trigger::auto();
