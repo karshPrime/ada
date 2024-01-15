@@ -24,14 +24,15 @@ fn main() {
         buzzers.update(&counter);
 
         // actions
-        trigger::auto();
         trigger::call();
+        let cmd_call = buttons.call();
+        trigger::auto(&counter, &leds, &buzzers);
 
         // counter update
         trigger::update_counter(&mut counter);
 
         // if program must keep running
-        run = trigger::keep_running();
+        run = trigger::keep_running(&buttons);
     }
 }
 

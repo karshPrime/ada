@@ -1,8 +1,12 @@
-//
+use crate::units;
+use units::{Led, Button, Buzzer};
 
 //
-pub fn auto() -> (){
-    //
+pub fn auto(counter: &u32, leds: &Led, buzzers: &Buzzer) {
+    if 1 == *counter {
+        // change led status
+    }
+    unimplemented!();
 }
 
 //
@@ -11,8 +15,8 @@ pub fn call() -> (){
 }
 
 //
-pub fn keep_running() -> bool {
-    return true;
+pub fn keep_running(buttons: &Button) -> bool {
+    unimplemented!();
 }
 
 //
