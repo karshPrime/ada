@@ -21,7 +21,11 @@ impl unit::Component for Button {
             println!("{counter}");
         }
     }
+}
 
+impl Button {
+    pub fn call(&self) -> u16 {
+        unimplemented!();
     }
 }
 

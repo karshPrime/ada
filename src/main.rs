@@ -8,6 +8,7 @@ use units::{unit::Component, Led, Button, Buzzer};
 fn main() {
     let mut counter: u32  = 1;
     let mut run    : bool = true;
+    let mut shift  : bool = false;
 
     // initialise all components
     let chip = Chip::new("gpiochip0")
@@ -24,9 +25,9 @@ fn main() {
         buzzers.update(&counter);
 
         // actions
-        trigger::call();
         let cmd_call = buttons.call();
         trigger::auto(&counter, &leds, &buzzers);
+        trigger::call(&mut shift, &cmd_call);
 
         // counter update
         trigger::update_counter(&mut counter);
