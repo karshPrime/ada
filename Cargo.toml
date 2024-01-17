@@ -3,12 +3,6 @@ name = "ada"
 version = "0.1.0"
 edition = "2021"
 
-# [target.armv7-unknown-linux-gnueabihf]
-# linker = "arm-linux-gnueabihf-gcc-4.7"
-
-[target.armv7-unknown-linux-gnueabihf]
-linker = "arm-none-linux-gnueabihf-gcc"
-
 [dependencies]
 gpiod = "0.2.3"
 
