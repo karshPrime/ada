@@ -19,7 +19,7 @@ However, I will follow the standard Rust coding style-guide.
 - GPIO Port Control: Interact with Raspberry Pi GPIO ports to manage buttons,
   buzzers, LEDs and Sensors.
 - Sensor Integration: Expand functionality by incorporating various sensors
-  ([list](https://github.com/karshPrime/ada/sensors.md)) which in future updates.
+  ([list](./sensors.md)) which in future updates.
 - System Control: The headless product will be able to perform certain actions
   on the main device.
 - Telegram Bot Interface: Control and monitor the device remotely using a
