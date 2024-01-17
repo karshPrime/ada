@@ -1,15 +1,30 @@
 use gpiod;
 use super::unit;
 
+const PIN_COUNT: usize = 1;
+
 pub struct Buzzer {
-    line: gpiod::Lines<gpiod::Input>,
-    sleep: u32,
+    line: gpiod::Lines<gpiod::Output>,
+    sleep: [u32; PIN_COUNT],
 }
 
-impl unit::Component for Buzzer {
     // Initialize and return a vector of buzzers
+impl unit::Component for Buzzer {
     fn init(chip: &gpiod::Chip) -> Buzzer {
-        unimplemented!()
+        let pins: [u32; PIN_COUNT] = [
+            13  // one pin
+        ];
+
+        let sleep_status: [u32; PIN_COUNT] = Default::default();
+
+        let options = gpiod::Options::output(pins)
+            .consumer("Buzzers");
+
+        let connection_line = chip
+            .request_lines(options)
+            .expect("failed to Initialize buzzers");
+
+        return Buzzer { line: connection_line, sleep: sleep_status };
     }
 
     fn update(&self, counter: &u32) {
