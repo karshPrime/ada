@@ -27,7 +27,8 @@ impl unit::Component for Buzzer {
         return Buzzer { line: connection_line, sleep: sleep_status };
     }
 
-    fn update(&self, counter: &u32) {
+    fn update(&mut self, counter: &u32) {
         // Update logic for buzzer
     }
 }
+

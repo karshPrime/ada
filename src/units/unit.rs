@@ -2,5 +2,5 @@ use gpiod::Chip;
 
 pub trait Component {
     fn init(chip: &Chip) -> Self;
-    fn update(&self, counter: &u32);
+    fn update(&mut self, counter: &u32);
 }

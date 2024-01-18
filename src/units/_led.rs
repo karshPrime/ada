@@ -28,10 +28,10 @@ impl unit::Component for Led {
             .expect("failed to Initialize leds");
 
         return Led { line: connection_line, sleep: sleep_status };
+
+    fn update(&mut self, counter: &u32) {
     }
 
-    fn update(&self, counter: &u32) {
-        //
     }
 }
 

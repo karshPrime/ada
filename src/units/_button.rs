@@ -32,7 +32,7 @@ impl unit::Component for Button {
         return Button {line: connection_line, sleep: sleep_status};
     }
 
-    fn update(&self, counter: &u32) {
+    fn update(&mut self, counter: &u32) {
         if 0 == self.sleep[0] {
             println!("{counter}");
         }
