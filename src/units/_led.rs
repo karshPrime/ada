@@ -6,6 +6,7 @@ const PIN_COUNT: usize = 3;
 pub struct Led {
     line: gpiod::Lines<gpiod::Output>,
     sleep: [u32; PIN_COUNT],
+    blink: [unit::Pulse; PIN_COUNT],
 }
 
 impl unit::Component for Led {
@@ -19,6 +20,10 @@ impl unit::Component for Led {
         ];
 
         let sleep_status: [u32; PIN_COUNT] = Default::default(); 
+        let blink_status: [unit::Pulse; PIN_COUNT] = [
+            unit::Pulse {pace: 0, count: 0,}; 
+            PIN_COUNT
+        ];
 
         let options = gpiod::Options::output(pins)
             .consumer("LEDs");
@@ -27,7 +32,12 @@ impl unit::Component for Led {
             .request_lines(options)
             .expect("failed to Initialize leds");
 
-        return Led { line: connection_line, sleep: sleep_status };
+        return Led { 
+            line: connection_line,
+            sleep: sleep_status,
+            blink: blink_status
+        };
+    }
 
     fn update(&mut self, counter: &u32) {
     }

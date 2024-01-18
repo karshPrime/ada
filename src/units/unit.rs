@@ -22,3 +22,9 @@ pub fn pace_value(pace: Pace) -> u32 {
     }
 }
 
+#[derive(Debug, Copy, Clone)]
+pub struct Pulse {
+    pub pace: u32,
+    pub count: u8,
+}
+
