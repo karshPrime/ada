@@ -26,9 +26,8 @@ fn main() {
         buzzers.update(&counter);
 
         // actions
-        let cmd_call = buttons.call();
         trigger::auto(&counter, &leds, &buzzers);
-        trigger::call(&mut shift, &cmd_call);
+        trigger::call(&mut shift, buttons.call);
 
         // counter update
         counter::update(&mut counter);

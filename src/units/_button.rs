@@ -6,6 +6,7 @@ const PIN_COUNT: usize = 5;
 pub struct Button {
     line: gpiod::Lines<gpiod::Input>,
     sleep: [u32; PIN_COUNT],
+    pub call: u16,
 }
 
 impl unit::Component for Button {
@@ -29,19 +30,17 @@ impl unit::Component for Button {
             .request_lines(options)
             .expect("failed");
 
-        return Button {line: connection_line, sleep: sleep_status};
+        return Button {
+            line: connection_line, 
+            sleep: sleep_status,
+            call: 0,
+        };
     }
 
     fn update(&mut self, counter: &u32) {
         if 0 == self.sleep[0] {
             println!("{counter}");
         }
-    }
-}
-
-impl Button {
-    pub fn call(&self) -> u16 {
-        unimplemented!();
     }
 }
 
