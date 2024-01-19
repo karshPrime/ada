@@ -41,7 +41,12 @@ impl unit::Component for Led {
 
     fn update(&mut self, counter: &u32) {
     }
+}
 
+impl Led {
+    pub fn blink(&self, id: usize, duration: u8, pace: unit::Pace) {
+        self.blink[id].count = duration * 2;
+        self.blink[id].pace  = unit::pace_value(pace);
     }
 }
 
