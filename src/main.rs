@@ -1,6 +1,7 @@
 mod log;
-mod trigger;
 mod units;
+mod trigger;
+mod counter;
 
 use gpiod::Chip;
 use units::{unit::Component, Led, Button, Buzzer};
@@ -30,7 +31,7 @@ fn main() {
         trigger::call(&mut shift, &cmd_call);
 
         // counter update
-        trigger::update_counter(&mut counter);
+        counter::update(&mut counter);
 
         // if program must keep running
         run = trigger::keep_running(&buttons);

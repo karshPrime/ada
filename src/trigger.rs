@@ -34,8 +34,3 @@ pub fn keep_running(buttons: &Button) -> bool {
     unimplemented!();
 }
 
-//
-pub fn update_counter(counter: &mut u32)  {
-    *counter = 1 + (*counter * (*counter == u32::MAX) as u32);
-}
-
