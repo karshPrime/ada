@@ -40,6 +40,24 @@ impl unit::Component for Led {
     }
 
     fn update(&mut self, counter: &u32) {
+        let mut values = [None; PIN_COUNT];
+        for i in 0..PIN_COUNT {
+            if *counter == self.sleep[i] {
+                // reset the sleep counter 
+                self.sleep[i] = {
+                    let next_val = *counter + self.blink[i].pace;
+                    let to_reset = (self.blink[i].count != 0) as u32;
+                    next_val * to_reset 
+                };
+
+                // value = False when even blink, else True
+                values[i] = Some(self.blink[i].count % 2 == 1);
+
+                // update blink counter
+                self.blink[i].count -= (self.blink[i].count != 0) as u8;
+            }
+        }
+        self.line.set_values(values);
     }
 }
 
