@@ -15,9 +15,9 @@ fn main() {
     let chip = Chip::new("gpiochip0")
         .expect("Failed to open GPIO chip");
     
-    let leds = Led::init(&chip);
-    let buttons = Button::init(&chip);
-    let buzzers = Buzzer::init(&chip);
+    let mut leds = Led::init(&chip);
+    let mut buttons = Button::init(&chip);
+    let mut buzzers = Buzzer::init(&chip);
     
     while run {
         // update
