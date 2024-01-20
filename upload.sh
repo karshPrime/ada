@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+clear;
+
 # copy all source code to the target machine
 echo -e "\e[1;33mUpload\n===============\e[1;31m"
 scp -r ./src/* core3b+:$HOME/ada/src/.
