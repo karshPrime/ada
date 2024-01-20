@@ -60,10 +60,3 @@ To track the progress of the project and view the backlog, refer to the
 This board provides an overview of upcoming tasks, features in progress, and 
 those completed.
 
-
-## Decisions
-
-I prioritize clear and readable code. Comments throughout the code explain 
-statement purposes. Additionally, a list below provides explanations for 
-specific decisions marked with comments like `// [num]`.
-
