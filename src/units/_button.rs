@@ -1,5 +1,6 @@
 use gpiod;
 use super::unit;
+use crate::config::details::{BUTTON_PINS, BUTTON_COUNT};
 
 const PIN_COUNT: usize = 5;
 

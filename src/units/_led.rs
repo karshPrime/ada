@@ -1,6 +1,7 @@
 use gpiod;
 use super::unit;
 use crate::counter;
+use crate::config::details::{LED_PINS, LED_COUNT};
 
 const PIN_COUNT: usize = 3;
 

@@ -2,8 +2,10 @@ mod log;
 mod units;
 mod trigger;
 mod counter;
+mod config;
 
 use gpiod::Chip;
+use config::details::CHIP;
 use units::{unit::Component, Led, Button, Buzzer};
 
 fn main() {
@@ -12,7 +14,7 @@ fn main() {
     let mut shift  : bool = false;
 
     // initialise all components
-    let chip = Chip::new("gpiochip0")
+    let chip = Chip::new(CHIP)
         .expect("Failed to open GPIO chip");
     
     let mut leds = Led::init(&chip);
